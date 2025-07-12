@@ -1,34 +1,41 @@
-# Skill Swap Platform - Login Page
+# 💡 Skill Swap Platform
 
-A modern login page implementation using Odoo's default color scheme and design principles.
+## ✅ Problem Statement
 
-## Features
+Develop a Skill Swap Platform — a mini application that enables users to list their skills and request others in return
 
-- Clean and modern UI design
-- Responsive layout
-- Odoo's default color palette
-- Input field validation
-- Hover effects and transitions
-- Mobile-friendly design
+### Features:
+- Basic info: Name, location (optional), profile photo (optional)
+- List of skills offered
+- List of skills wanted
+- Availability (e.g., weekends, evenings)
+- User can make their profile public or private.
+- Users can browse or search others by skill (e.g., “Photoshop” or “Excel”)
+- Request & Accept Swaps:
+    ○ Accept or reject swap offers <br>
+    ○ Show current and pending swap requests
+- Ratings or feedback after a swap
+- The user is also able to delete the swap request if it is not accepted.
 
-## Color Scheme
+### Admin Role:
+● Reject inappropriate or spammy skill descriptions. <br>
+● Ban users who violate platform policies. <br>
+● Monitor pending, accepted, or cancelled swaps. <br>
+● Send platform-wide messages (e.g., feature updates, downtime alerts). <br>
+● Download reports of user activity, feedback logs, and swap stats. <br>
 
-The project uses Odoo's default color palette:
+📐 **UI Mockups**: [View Wireframes Here](https://link.excalidraw.com/l/65VNwvy7c4X/8bM86GXnnUN)
 
-- Primary Color: `#875A7B` (Indigo/Purple)
-- Secondary Color: `#A89BB9` (Light Purple)
-- Background Light: `#FFFFFF` (White)
-- Background Dark: `#F5F5F5` (Light Gray)
-- Text Primary: `#212529` (Dark Gray/Black)
-- Text Secondary: `#6C757D` (Medium Gray)
+---
 
-## Setup
+## 👥 Team Name
+BuildCrew
 
-1. Clone the repository
-2. Open `index.html` in a web browser
-3. No additional dependencies required
+---
 
-## Structure
+## 📧 Team Leader's Email ID
+amitpamnani205@gmail.com
 
-- `index.html` - Main HTML structure
-- `styles.css` - Styling and layout
+---
+
+> *Made with 💙 during Odoo Virtual Hackathon July 2025* 
