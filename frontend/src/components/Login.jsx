@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+function Login({ onLoginSuccess }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement login logic
-    console.log('Login attempt with:', { email, password });
+    // TODO: Implement actual login logic
+    if (email && password) {
+      onLoginSuccess();
+      navigate('/');
+    } else {
+      setError('Please enter both email and password');
+    }
   };
 
   return (
@@ -16,6 +24,12 @@ function Login() {
       <div className="login-box">
         <h2>Welcome Back</h2>
         <p className="subtitle">Please sign in to continue</p>
+        
+        {error && (
+          <div className="error-message">
+            {error}
+          </div>
+        )}
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">

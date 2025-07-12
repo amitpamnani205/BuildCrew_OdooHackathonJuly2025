@@ -1,5 +1,16 @@
-.App {
-  text-align: center;
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-content {
+  margin-top: 64px; /* Height of navbar */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .App-header {
