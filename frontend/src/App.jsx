@@ -1,7 +1,9 @@
-import React from 'react'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login';
+import './App.css';
 
-function App() {
+function Home() {
   const colorPalette = [
     { name: 'Primary', variable: '--color-primary', hex: '#875A7B', description: 'Buttons, links, accents' },
     { name: 'Secondary', variable: '--color-secondary', hex: '#A89BB9', description: 'Hover effects, alternate accents' },
@@ -9,7 +11,7 @@ function App() {
     { name: 'Warning', variable: '--color-warning', hex: '#FFC107', description: 'Alerts, warnings' },
     { name: 'Danger', variable: '--color-danger', hex: '#DC3545', description: 'Error messages' },
     { name: 'Info', variable: '--color-info', hex: '#007BFF', description: 'Hyperlinks, tooltips' }
-  ]
+  ];
 
   return (
     <div className="App">
@@ -73,7 +75,19 @@ function App() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default App 
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App; 

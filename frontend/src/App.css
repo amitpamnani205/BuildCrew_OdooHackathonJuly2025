@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background-color: var(--color-primary);
   padding: var(--spacing-xxl) var(--spacing-xl);
   color: white;
   min-height: 100vh;
