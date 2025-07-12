@@ -1,0 +1,161 @@
+/* Theme Variables - BuildCrew Odoo Hackathon Color Palette */
+:root {
+  /* Primary Colors */
+  --color-primary: #875A7B;         /* Indigo/Purple - Odoo brand color */
+  --color-secondary: #A89BB9;       /* Light Purple */
+  
+  /* Background Colors */
+  --color-bg-light: #FFFFFF;        /* White - General content background */
+  --color-bg-dark: #F5F5F5;         /* Light Gray - Sections, footers, cards */
+  
+  /* Text Colors */
+  --color-text-primary: #212529;    /* Dark Gray/Black - Main text */
+  --color-text-secondary: #6C757D;  /* Medium Gray - Secondary content */
+  
+  /* Status Colors */
+  --color-success: #28A745;         /* Green - Notifications, confirmation */
+  --color-warning: #FFC107;         /* Orange/Yellow - Alerts, warnings */
+  --color-danger: #DC3545;          /* Red - Error messages */
+  --color-info: #007BFF;            /* Blue - Hyperlinks, tooltips */
+  
+  /* Utility Colors */
+  --color-border: #DEE2E6;          /* Light border color */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  
+  /* Hover and Focus States */
+  --color-primary-hover: #6d4a64;   /* Darker primary for hover */
+  --color-secondary-hover: #9a8bb0; /* Darker secondary for hover */
+  --color-success-hover: #218838;   /* Darker success for hover */
+  --color-warning-hover: #e0a800;   /* Darker warning for hover */
+  --color-danger-hover: #c82333;    /* Darker danger for hover */
+  --color-info-hover: #0056b3;      /* Darker info for hover */
+  
+  /* Spacing and Layout */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 3rem;    /* 48px */
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;  /* 4px */
+  --border-radius-md: 0.5rem;   /* 8px */
+  --border-radius-lg: 0.75rem;  /* 12px */
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-xxl: 1.5rem;   /* 24px */
+  --font-size-xxxl: 2rem;    /* 32px */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Utility Classes for Theme Colors */
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-danger { color: var(--color-danger); }
+.text-info { color: var(--color-info); }
+.text-muted { color: var(--color-text-secondary); }
+
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-light { background-color: var(--color-bg-light); }
+.bg-dark { background-color: var(--color-bg-dark); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-danger { background-color: var(--color-danger); }
+.bg-info { background-color: var(--color-info); }
+
+/* Button Base Styles */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: var(--color-success-hover);
+}
+
+.btn-warning {
+  background-color: var(--color-warning);
+  color: var(--color-text-primary);
+}
+
+.btn-warning:hover {
+  background-color: var(--color-warning-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+.btn-info {
+  background-color: var(--color-info);
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: var(--color-info-hover);
+} 

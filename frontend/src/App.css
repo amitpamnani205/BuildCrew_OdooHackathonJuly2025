@@ -1,0 +1,120 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  position: relative;
+  overflow: hidden;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.App-header > * {
+  position: relative;
+  z-index: 2;
+}
+
+.App-header h1 {
+  margin-bottom: var(--spacing-lg);
+  color: white;
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.App-header p {
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-lg);
+  opacity: 0.9;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+.App-header .highlight {
+  color: var(--color-warning);
+  font-weight: 600;
+}
+
+/* Theme Demo Section */
+.theme-demo {
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+
+.theme-demo h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xxl);
+}
+
+.color-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.color-item {
+  background-color: var(--color-bg-dark);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease-in-out;
+}
+
+.color-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.color-preview {
+  width: 100%;
+  height: 60px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+}
+
+.color-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.color-code {
+  font-family: monospace;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.button-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
+.button-demo .btn {
+  min-width: 120px;
+} 
