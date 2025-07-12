@@ -11,7 +11,7 @@ Develop a Skill Swap Platform — a mini application that enables users to list 
 - Availability (e.g., weekends, evenings)
 - User can make their profile public or private.
 - Users can browse or search others by skill (e.g., “Photoshop” or “Excel”)
-- Request & Accept Swaps:
+- Request & Accept Swaps: <br>
     ○ Accept or reject swap offers <br>
     ○ Show current and pending swap requests
 - Ratings or feedback after a swap
