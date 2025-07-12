@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import apiService from '../services/api';
 import './Login.css';
 
 function Login({ onLoginSuccess }) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -28,14 +29,21 @@ function Login({ onLoginSuccess }) {
       
       if (response.success) {
         setSuccess(response.message);
-        onLoginSuccess();
         
-        // Store user data and redirect
+        // Store user data and call success callback
         console.log('Login successful:', response.user);
         
-        // Redirect to home after successful login
+        // Call the parent component's login success handler
+        if (onLoginSuccess) {
+          onLoginSuccess();
+        }
+        
+        // Get return URL from search params, default to home
+        const returnTo = searchParams.get('returnTo') || '/';
+        
+        // Redirect after successful login
         setTimeout(() => {
-          navigate('/home');
+          navigate(returnTo);
         }, 1500);
       }
     } catch (error) {
@@ -118,6 +126,16 @@ function Login({ onLoginSuccess }) {
         <p className="register-link">
           Don't have an account? <Link to="/register">Register</Link>
         </p>
+        
+        <div className="back-to-home">
+          <button 
+            type="button"
+            className="btn btn-text"
+            onClick={() => navigate('/')}
+          >
+            ← Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );

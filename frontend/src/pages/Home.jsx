@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/SearchBar';
 import UserCard from '../components/UserCard/UserCard';
 import Pagination from '../components/Pagination/Pagination';
+import apiService from '../services/api';
 import './Home.css';
 
 const ITEMS_PER_PAGE = 10;
@@ -114,6 +115,12 @@ function Home({ isLoggedIn }) {
   };
 
   const handleRequest = async (userId) => {
+    // If user is not logged in, redirect to login with return URL
+    if (!isLoggedIn) {
+      navigate('/login?returnTo=' + encodeURIComponent(location.pathname + location.search));
+      return;
+    }
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 500));

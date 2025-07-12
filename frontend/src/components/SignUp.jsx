@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from './common/Input';
 import Button from './common/Button';
 import { validateField, validateFile } from '../utils/validation';
+import apiService from '../services/api';
 import './SignUp.css';
 
-const SignUp = () => {
+const SignUp = ({ onRegisterSuccess }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -16,6 +19,7 @@ const SignUp = () => {
   const [photoPreview, setPhotoPreview] = useState(null);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState('');
 
   const validateForm = () => {
     const newErrors = {};
@@ -87,14 +91,35 @@ const SignUp = () => {
 
     try {
       setIsLoading(true);
-      // Here you would typically send the data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
-      console.log('Form submitted:', { ...formData, profilePhoto });
-      // Handle successful submission
+      
+      // Register user with API
+      const response = await apiService.register(
+        formData.username, // This will be sent as 'name' in the API
+        formData.email,
+        formData.password,
+        formData.confirmPassword
+      );
+      
+      if (response.success) {
+        // Registration successful
+        console.log('Registration successful:', response.user);
+        setSuccess('Account created successfully! Redirecting...');
+        
+        // Call success callback
+        if (onRegisterSuccess) {
+          onRegisterSuccess();
+        }
+        
+        // Redirect to home page
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
+      }
     } catch (error) {
+      console.error('Registration error:', error);
       setErrors(prev => ({
         ...prev,
-        submit: 'Failed to create account. Please try again.'
+        submit: error.message || 'Failed to create account. Please try again.'
       }));
     } finally {
       setIsLoading(false);
@@ -180,6 +205,9 @@ const SignUp = () => {
             <div className="error-message submit-error">{errors.submit}</div>
           )}
 
+          {success && (
+            <div className="success-message">{success}</div>
+          )}
           <Button
             type="submit"
             variant="primary"
@@ -188,6 +216,20 @@ const SignUp = () => {
             Create Account
           </Button>
         </form>
+        
+        <p className="login-link">
+          Already have an account? <a href="/login">Sign In</a>
+        </p>
+        
+        <div className="back-to-home">
+          <button 
+            type="button"
+            className="btn btn-text"
+            onClick={() => navigate('/')}
+          >
+            ← Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );

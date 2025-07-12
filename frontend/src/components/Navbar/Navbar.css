@@ -1,70 +1,143 @@
 .navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  background: var(--color-primary, #875A7B);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0;
 }
 
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0;
+}
+
+/* Main header section */
+.navbar-header {
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-logo {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo-text {
+.navbar-title {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: -0.5px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  margin: 0;
 }
 
-.navbar-right {
+.navbar-title:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-section {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 15px;
 }
 
-.auth-button {
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 500;
+  color: white;
+}
+
+.admin-badge {
+  background: var(--color-warning, #FFC107);
+  color: #333;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .btn {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  font-size: 14px;
 }
 
-.auth-button:hover {
-  background-color: var(--color-primary-dark, #6a4861);
-  transform: translateY(-1px);
+.auth-buttons .btn-primary {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.auth-button:active {
-  transform: translateY(0);
+.auth-buttons .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 640px) {
-  .navbar-container {
-    padding: 1rem;
+.auth-buttons .btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.auth-buttons .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation section */
+.navbar-nav {
+  padding: 10px 20px 15px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-btn:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 15px 20px 10px;
   }
-
-  .logo-text {
-    font-size: 1.25rem;
+  
+  .navbar-title {
+    font-size: 1.3rem;
+  }
+  
+  .navbar-nav {
+    justify-content: center;
+    padding: 10px 20px 15px;
+  }
+  
+  .auth-buttons {
+    justify-content: center;
   }
 } 

@@ -2,46 +2,22 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  background: white;
+  border-radius: 12px;
   padding: 1.75rem;
   margin-bottom: 1.25rem;
   margin-inline: auto;
   width: 80%;
-  box-shadow: 
-    0 4px 24px -1px rgba(0, 0, 0, 0.06),
-    0 12px 64px -8px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.user-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  padding: 2px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.1),
-    rgba(var(--color-primary-rgb), 0.2)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+  border: 1px solid var(--color-border);
 }
 
 .user-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 
-    0 8px 32px -4px rgba(0, 0, 0, 0.08),
-    0 16px 64px -12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card-left {
@@ -55,21 +31,7 @@
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  padding: 3px;
-}
-
-.profile-photo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  padding: 4px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  border: 3px solid var(--color-primary);
 }
 
 .profile-photo img {
@@ -77,11 +39,11 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease;
 }
 
 .profile-photo:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .card-middle {
@@ -94,10 +56,6 @@
   margin: 0 0 1.25rem;
   font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .skills-section {
@@ -148,47 +106,25 @@
 }
 
 .request-btn {
-  position: relative;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: var(--color-primary);
   color: white;
   border: none;
   padding: 0.875rem 2rem;
-  border-radius: 100px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s ease, transform 0.2s ease;
   font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  overflow: hidden;
-}
-
-.request-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateX(-100%);
 }
 
 .request-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 4px 12px rgba(var(--color-primary-rgb), 0.3),
-    0 8px 24px rgba(var(--color-primary-rgb), 0.2);
-}
-
-.request-btn:hover:not(:disabled)::before {
-  transform: translateX(100%);
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
 }
 
 .request-btn:disabled {
-  background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+  background: #e0e0e0;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
 .rating {
