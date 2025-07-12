@@ -18,6 +18,7 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
+<<<<<<< Updated upstream
         {/* Main header */}
         <div className="navbar-header">
           <Link to="/" className="navbar-title">
@@ -40,6 +41,30 @@ const Navbar = ({ isLoggedIn, onLogout }) => {
               </div>
             )}
           </div>
+=======
+        <Link to="/" className="navbar-logo">
+          <span className="logo-text">Skill Swap</span>
+        </Link>
+
+        <div className="navbar-right">
+          {isLoggedIn && (
+            <Link to="/profile" className="profile-link">
+              <div className="profile-icon">
+                <img 
+                  src="https://i.pravatar.cc/150?img=3" 
+                  alt="Profile" 
+                  className="profile-image"
+                />
+              </div>
+            </Link>
+          )}
+          <button 
+            className="auth-button"
+            onClick={handleAuthAction}
+          >
+            {isLoggedIn ? 'Logout' : 'Login'}
+          </button>
+>>>>>>> Stashed changes
         </div>
 
         {/* Navigation buttons - Hidden as requested */}

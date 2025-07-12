@@ -56,6 +56,13 @@
   margin: 0 0 1.25rem;
   font-size: 1.5rem;
   font-weight: 700;
+<<<<<<< Updated upstream
+=======
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+>>>>>>> Stashed changes
 }
 
 .skills-section {

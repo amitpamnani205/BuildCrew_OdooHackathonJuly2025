@@ -4,9 +4,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+<<<<<<< Updated upstream
 import Home from './pages/Home';
 import UserProfile from './components/UserProfile';
 import apiService from './services/api';
+=======
+import SwapRequest from './pages/SwapRequest';
+import UserProfile from './pages/UserProfile';
+>>>>>>> Stashed changes
 import './App.css';
 
 function App() {
@@ -50,6 +55,7 @@ function App() {
 
   return (
     <Router>
+<<<<<<< Updated upstream
       <Routes>
         {/* Authentication routes - full screen without navbar */}
         <Route 
@@ -120,6 +126,51 @@ function App() {
           } 
         />
       </Routes>
+=======
+      <div className="app-container">
+        <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+        <div className="main-content">
+          <Routes>
+            <Route 
+              path="/login" 
+              element={
+                isLoggedIn ? 
+                <Navigate to="/" replace /> : 
+                <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+              } 
+            />
+            <Route 
+              path="/register" 
+              element={
+                isLoggedIn ? 
+                <Navigate to="/" replace /> : 
+                <SignUp />
+              } 
+            />
+            <Route 
+              path="/requests" 
+              element={
+                isLoggedIn ? 
+                <SwapRequest /> : 
+                <Navigate to="/login" replace />
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                isLoggedIn ? 
+                <UserProfile /> : 
+                <Navigate to="/login" replace />
+              } 
+            />
+            <Route 
+              path="/" 
+              element={<Home isLoggedIn={isLoggedIn} />}
+            />
+          </Routes>
+        </div>
+      </div>
+>>>>>>> Stashed changes
     </Router>
   );
 }

@@ -133,11 +133,37 @@ function Home({ isLoggedIn }) {
 
   return (
     <div className="home-container">
+      <div className="home-header">
+        <h1>Welcome to Skill Swap</h1>
+        <p className="subtitle">Connect, Learn, and Grow Together</p>
+        <div className="features">
+          <div className="feature">
+            <span className="feature-icon">🤝</span>
+            <h3>Exchange Skills</h3>
+            <p>Share your expertise and learn from others</p>
+          </div>
+          <div className="feature">
+            <span className="feature-icon">🌱</span>
+            <h3>Grow Together</h3>
+            <p>Build meaningful connections while learning</p>
+          </div>
+          <div className="feature">
+            <span className="feature-icon">🎯</span>
+            <h3>Achieve Goals</h3>
+            <p>Reach your learning objectives faster</p>
+          </div>
+        </div>
+      </div>
+
       <main className="home-content">
-        <SearchBar
-          onSearch={handleSearch}
-          availabilityOptions={availabilityOptions}
-        />
+        <div className="search-section">
+          <h2>Find Your Learning Partner</h2>
+          <p className="search-subtitle">Discover skilled individuals ready to exchange knowledge</p>
+          <SearchBar
+            onSearch={handleSearch}
+            availabilityOptions={availabilityOptions}
+          />
+        </div>
 
         {error ? (
           <div className="error-container" role="alert">
@@ -169,16 +195,20 @@ function Home({ isLoggedIn }) {
                 ))
               ) : (
                 <div className="no-results">
-                  <p>No users found matching your criteria.</p>
+                  <span className="no-results-icon">🔍</span>
+                  <h3>No Matches Found</h3>
+                  <p>Try adjusting your search criteria or check back later for new users.</p>
                 </div>
               )}
             </div>
 
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
+            {users.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
+            )}
           </>
         )}
       </main>
