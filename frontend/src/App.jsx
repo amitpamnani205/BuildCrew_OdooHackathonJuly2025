@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import Home from './pages/Home';
+import SignUp from './components/SignUp';
 import './App.css';
 
 function App() {
@@ -21,11 +22,23 @@ function App() {
           <Routes>
             <Route 
               path="/login" 
-              element={<Login onLoginSuccess={() => setIsLoggedIn(true)} />} 
+              element={
+                isLoggedIn ? 
+                <Navigate to="/" replace /> : 
+                <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+              } 
+            />
+            <Route 
+              path="/register" 
+              element={
+                isLoggedIn ? 
+                <Navigate to="/" replace /> : 
+                <SignUp />
+              } 
             />
             <Route 
               path="/" 
-              element={<Home isLoggedIn={isLoggedIn} />} 
+              element={<Home isLoggedIn={isLoggedIn} />}
             />
           </Routes>
         </div>
