@@ -5,64 +5,50 @@
  * All colors are also available as CSS custom properties in index.css
  */
 
-export const theme = {
+// Theme configuration
+const theme = {
   colors: {
-    // Primary Colors
-    primary: '#875A7B',         // Indigo/Purple - Odoo brand color
-    secondary: '#A89BB9',       // Light Purple
+    primary: '#875A7B',
+    secondary: '#A89BB9',
+    success: '#28A745',
+    warning: '#FFC107',
+    danger: '#DC3545',
+    info: '#007BFF',
     
-    // Background Colors
-    bgLight: '#FFFFFF',         // White - General content background
-    bgDark: '#F5F5F5',          // Light Gray - Sections, footers, cards
+    // Text colors
+    textPrimary: '#1A1A1A',
+    textSecondary: '#666666',
     
-    // Text Colors
-    textPrimary: '#212529',     // Dark Gray/Black - Main text
-    textSecondary: '#6C757D',   // Medium Gray - Secondary content
+    // Background colors
+    bgLight: '#F8F9FA',
+    bgDark: '#343A40',
     
-    // Status Colors
-    success: '#28A745',         // Green - Notifications, confirmation
-    warning: '#FFC107',         // Orange/Yellow - Alerts, warnings
-    danger: '#DC3545',          // Red - Error messages
-    info: '#007BFF',            // Blue - Hyperlinks, tooltips
+    // Border colors
+    border: '#E2E8F0',
     
-    // Utility Colors
-    border: '#DEE2E6',          // Light border color
-    shadow: 'rgba(0, 0, 0, 0.1)', // Subtle shadow
-    
-    // Hover States
-    primaryHover: '#6d4a64',    // Darker primary for hover
-    secondaryHover: '#9a8bb0',  // Darker secondary for hover
-    successHover: '#218838',    // Darker success for hover
-    warningHover: '#e0a800',    // Darker warning for hover
-    dangerHover: '#c82333',     // Darker danger for hover
-    infoHover: '#0056b3',       // Darker info for hover
-  },
-  
-  spacing: {
-    xs: '0.25rem',    // 4px
-    sm: '0.5rem',     // 8px
-    md: '1rem',       // 16px
-    lg: '1.5rem',     // 24px
-    xl: '2rem',       // 32px
-    xxl: '3rem',      // 48px
-  },
-  
-  fontSize: {
-    xs: '0.75rem',    // 12px
-    sm: '0.875rem',   // 14px
-    md: '1rem',       // 16px
-    lg: '1.125rem',   // 18px
-    xl: '1.25rem',    // 20px
-    xxl: '1.5rem',    // 24px
-    xxxl: '2rem',     // 32px
-  },
-  
-  borderRadius: {
-    sm: '0.25rem',    // 4px
-    md: '0.5rem',     // 8px
-    lg: '0.75rem',    // 12px
+    // Status colors
+    pending: '#FFC107',
+    accepted: '#28A745',
+    rejected: '#DC3545'
   }
-}
+};
+
+// Convert theme to CSS variables
+const createCssVariables = () => {
+  const root = document.documentElement;
+  
+  // Set color variables
+  Object.entries(theme.colors).forEach(([key, value]) => {
+    root.style.setProperty(`--color-${key}`, value);
+  });
+};
+
+// Initialize theme
+export const initializeTheme = () => {
+  createCssVariables();
+};
+
+export default theme;
 
 /**
  * Usage Examples:
@@ -93,6 +79,4 @@ export const theme = {
  * 6. Available Background Classes:
  *    .bg-primary, .bg-secondary, .bg-light, .bg-dark,
  *    .bg-success, .bg-warning, .bg-danger, .bg-info
- */
-
-export default theme 
+ */ 

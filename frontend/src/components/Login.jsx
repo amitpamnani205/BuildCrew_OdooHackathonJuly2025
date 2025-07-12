@@ -7,10 +7,18 @@ function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement login logic
-    console.log('Login attempt with:', { email, password });
+    try {
+      // TODO: Implement actual login logic here
+      console.log('Login attempt with:', { email, password });
+      
+      // For now, just simulate successful login
+      // In real implementation, this would happen after successful API response
+      navigate('/requests'); // Navigate to requests page after login
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   };
 
   return (
