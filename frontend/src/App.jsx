@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 import './App.css';
 
 function Home() {
@@ -83,6 +84,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
